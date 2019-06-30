@@ -7,7 +7,7 @@ services:
     hostname: zookeeper-1.vnet
     image: smizy/zookeeper:3.4-alpine
     ports:
-      - "2182:2181"
+      - 2182:2181
     environment:
       - SERVICE_2181_NAME=zookeeper
 
@@ -48,7 +48,7 @@ services:
     image: smizy/apache-phoenix:4.14.0-alpine
     expose: [16000]
     ports:
-      - "16000:16000"
+      - 16000:16000
     depends_on: ["zookeeper-1"]
     environment:
       - HBASE_ZOOKEEPER_QUORUM=zookeeper-1.vnet:2181
@@ -64,8 +64,8 @@ services:
     image: smizy/apache-phoenix:4.14.0-alpine
     expose: [16020, 16030]
     ports:
-      - "16020:16020"
-      - "16030:16030"
+      - 16020:16020
+      - 16030:16030
     depends_on: ["zookeeper-1"]
     environment:
       - HBASE_ZOOKEEPER_QUORUM=zookeeper-1.vnet:2181
